@@ -1,0 +1,3 @@
+{"at":"2026-09-09T18:10:54.607787Z","kind":"input","url":"https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC","role":"input","name":"password","value":null}
+{"at":"2026-09-09T18:10:54.611785Z","kind":"click","url":"https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC","role":"input","name":"","value":null}
+{"at":"2026-09-09T18:10:55.277730Z","kind":"navigate","url":"https://parabank.parasoft.com/parabank/overview.htm","role":"","name":"","value":null}

@@ -1,0 +1,4 @@
+replay: capability='look_up_member_read' params={'member_id_or_name': '99999'}
+evidence: evidence\20260909T162034Z-a792
+result: business outcome | RECORD_NOT_FOUND at step 4
+  No member records match that search.

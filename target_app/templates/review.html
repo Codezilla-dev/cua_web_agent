@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block subtitle %} - Review Transfer{% endblock %}
+{% block content %}
+
+<font size="3"><b>Review Transfer</b></font>
+<br><br>
+<font size="2" color="#aa4400">
+  This transfer is final once confirmed. It cannot be reversed from this console.
+</font>
+<br><br>
+
+<table cellpadding="5" cellspacing="0" border="0">
+  <tr>
+    <td align="right"><font size="2" color="#666666">From</font></td>
+    <td><font size="2"><b>{{ from_account }}</b></font></td>
+  </tr>
+  <tr>
+    <td align="right"><font size="2" color="#666666">To</font></td>
+    <td><font size="2"><b>{{ to_account }}</b></font></td>
+  </tr>
+  <tr>
+    <td align="right"><font size="2" color="#666666">Amount</font></td>
+    <td><font size="2"><b>${{ amount }}</b></font></td>
+  </tr>
+</table>
+
+<br>
+<form method="post" action="/transfer/confirm">
+  <input type="hidden" name="member_id" value="{{ member_id }}">
+  <input type="hidden" name="from_account" value="{{ from_account }}">
+  <input type="hidden" name="to_account" value="{{ to_account }}">
+  <input type="hidden" name="amount" value="{{ amount }}">
+  <input type="submit" value="Confirm Transfer">
+</form>
+
+{% endblock %}

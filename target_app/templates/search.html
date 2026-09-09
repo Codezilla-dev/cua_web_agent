@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block subtitle %} - Member Search{% endblock %}
+{% block content %}
+
+<font size="3"><b>Member Search</b></font>
+<br><br>
+<font size="2" color="#666666">
+  Search records are served by the legacy directory module.
+</font>
+<br><br>
+
+{# The entire search UI lives in a child frame. Perception has to recurse into
+   it or the page looks empty apart from chrome. #}
+<iframe src="/search_frame{{ query_suffix }}" name="directory"
+        width="820" height="360" frameborder="0"></iframe>
+
+{% endblock %}

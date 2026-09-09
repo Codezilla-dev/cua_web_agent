@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block subtitle %} - Sign In{% endblock %}
+{% block content %}
+
+<font size="3"><b>Operator Sign In</b></font>
+<br><br>
+
+{% if error %}
+<table cellpadding="6" cellspacing="0" border="0" bgcolor="#ffe8e8"
+       style="border:1px solid #cc8888;"><tr><td>
+  <font color="#aa2222" size="2"><b>{{ error }}</b></font>
+</td></tr></table>
+<br>
+{% endif %}
+
+{# No <label for>. The field's name is only knowable from the cell to its left. #}
+<form method="post" action="/login">
+<table cellpadding="5" cellspacing="0" border="0">
+  <tr>
+    <td align="right"><font size="2">Operator ID</font></td>
+    <td><input type="text" name="username" size="26"></td>
+  </tr>
+  <tr>
+    <td align="right"><font size="2">Passcode</font></td>
+    <td><input type="password" name="password" size="26"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Sign In"></td>
+  </tr>
+</table>
+</form>
+
+<br>
+<table cellpadding="6" cellspacing="0" border="0" bgcolor="#eef3ee"
+       style="border:1px solid #aabbaa;"><tr><td>
+  <font size="2" color="#446644">
+    Training environment. Sign in with <b>operator</b> / <b>operator</b>.
+  </font>
+</td></tr></table>
+
+{% endblock %}

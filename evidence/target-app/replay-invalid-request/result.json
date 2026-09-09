@@ -1,0 +1,13 @@
+{
+  "capability_id": "look_up_member_read",
+  "params": {},
+  "outcome": "hard_failure",
+  "kind": "invalid_request",
+  "step_index": -1,
+  "step_intent": "",
+  "expected": "values for required inputs ['member_id_or_name']",
+  "observed": "got []",
+  "evidence_dir": "evidence\\20260909T162040Z-8ced",
+  "recoveries": [],
+  "stuck_hint": null
+}

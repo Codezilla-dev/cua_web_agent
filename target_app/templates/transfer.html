@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block subtitle %} - Transfer Funds{% endblock %}
+{% block content %}
+
+<font size="3"><b>Transfer Funds</b></font>
+<br><br>
+<font size="2" color="#666666">Member {{ member.member_id }} &mdash; {{ member.name }}</font>
+<br><br>
+
+{% if error %}
+<table cellpadding="6" cellspacing="0" border="0" bgcolor="#ffe8e8"
+       style="border:1px solid #cc8888;"><tr><td>
+  <font color="#aa2222" size="2"><b>{{ error }}</b></font>
+</td></tr></table>
+<br>
+{% endif %}
+
+<form method="post" action="/transfer">
+<input type="hidden" name="member_id" value="{{ member.member_id }}">
+<table cellpadding="5" cellspacing="0" border="0">
+  <tr>
+    <td align="right"><font size="2">From Account</font></td>
+    <td>
+      {# Opaque option values behind readable labels - the planner only ever
+         sees the label, which is why select falls back from label to value. #}
+      <select name="from_account">
+        {% for account in member.accounts %}
+        <option value="{{ account.number }}">{{ account.kind }} {{ account.number }}</option>
+        {% endfor %}
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td align="right"><font size="2">To Account</font></td>
+    <td><input type="text" name="to_account" size="26"></td>
+  </tr>
+  <tr>
+    <td align="right"><font size="2">Amount</font></td>
+    <td><input type="text" name="amount" size="14"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Continue"></td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "intervention_id": "20260909T162053Z-1973-step07",
+  "run_id": "20260909T162053Z-1973",
+  "raised_at": "2026-09-09T16:21:04.952951Z",
+  "condition": "checkpoint_failed_terminal",
+  "guidance": "Every step ran but the flow did not end where the capability says it should. Confirm where the session actually is before resuming.",
+  "capability_id": "look_up_member_read_drifted",
+  "goal": "replay look_up_member_read_drifted",
+  "step_index": 7,
+  "step_intent": "checkpoint",
+  "url": "http://localhost:5000/member/12345",
+  "title": "Northgate Servicing Console - Member Record",
+  "state_summary": "URL was 'http://localhost:5000/member/12345'",
+  "screenshot_path": "interventions\\20260909T162053Z-1973-step07\\state.png",
+  "detail": "checkpoint_failed: expected looked for '22841' in the URL (case-insensitive)"
+}

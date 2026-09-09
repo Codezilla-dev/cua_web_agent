@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block subtitle %} - Transfer Complete{% endblock %}
+{% block content %}
+
+<font size="3"><b>Transfer Complete</b></font>
+<br><br>
+
+<table cellpadding="6" cellspacing="0" border="0" bgcolor="#eef3ee"
+       style="border:1px solid #aabbaa;"><tr><td>
+  <font size="2" color="#446644">
+    Confirmation {{ confirmation }} &mdash; ${{ amount }} moved from
+    {{ from_account }} to {{ to_account }}.
+  </font>
+</td></tr></table>
+
+<br>
+<font size="2"><a href="/member/{{ member_id }}">Back to Member Record</a></font>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+  "capability_id": "parabank_drifted",
+  "params": {},
+  "outcome": "success",
+  "outputs": {
+    "total_account_balance": "$515.50"
+  },
+  "steps_run": 4,
+  "recoveries": [
+    {
+      "step_index": 2,
+      "condition": "escalated: target_not_found",
+      "action_taken": "human took the session (20260909T181040Z-d71a-step02) and said the step was performed",
+      "attempts": 1
+    }
+  ]
+}

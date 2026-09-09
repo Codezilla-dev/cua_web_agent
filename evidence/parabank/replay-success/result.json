@@ -1,0 +1,10 @@
+{
+  "capability_id": "parabank",
+  "params": {},
+  "outcome": "success",
+  "outputs": {
+    "total_account_balance": "$515.50"
+  },
+  "steps_run": 4,
+  "recoveries": []
+}

@@ -1,0 +1,10 @@
+replay: capability='look_up_member_read_drifted' params={'member_id_or_name': '22841'}
+
+escalation: locator_unresolved at step 5.
+  cua operator take 20260909T162041Z-03c8-step05
+  waiting for an operator...
+escalation: control returned; retrying step 5.
+evidence: evidence\20260909T162041Z-03c8
+result: success | steps=7
+  savings_account_current_balance = '$918.40'
+  recovered: step 5 escalated: target_not_found -> human took the session (20260909T162041Z-03c8-step05) and said the step was performed

@@ -1,0 +1,10 @@
+{
+  "run_id": "20260909T180920Z-16f1",
+  "goal": "Find the total money in all accounts",
+  "target_url": "https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC",
+  "started_at": "2026-09-09T18:09:20.277881Z",
+  "finished_at": "2026-09-09T18:09:43.489970Z",
+  "outcome": "completed",
+  "summary": "Completed after 5 steps, reading total account balance = '$515.50'.",
+  "error": null
+}

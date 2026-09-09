@@ -1,0 +1,16 @@
+{
+  "intervention_id": "20260909T181040Z-d71a-step02",
+  "run_id": "20260909T181040Z-d71a",
+  "raised_at": "2026-09-09T18:10:47.344671Z",
+  "condition": "locator_unresolved",
+  "guidance": "The control this step needs was not found. Check whether the page is the one expected, and if the control is present under a different name, perform the step manually and resume.",
+  "capability_id": "parabank_drifted",
+  "goal": "replay parabank_drifted",
+  "step_index": 2,
+  "step_intent": "submit the login form",
+  "url": "https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC",
+  "title": "ParaBank | Welcome | Online Banking",
+  "state_summary": "url 'https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC' with 49 elements, e.g. [\"link:'ParaBank | Welcome | Online Banking'\", \"link:'ParaBank'\", \"StaticText:'Experience the difference'\", \"StaticText:'Solutions'\", \"link:'About Us'\", \"link:'Services'\", \"link:'Products'\", \"link:'Locations'\", \"link:'Admin Page'\", \"link:'home'\"]",
+  "screenshot_path": "interventions\\20260909T181040Z-d71a-step02\\state.png",
+  "detail": "target_not_found: expected button named 'Sign In' in main (match #0)"
+}

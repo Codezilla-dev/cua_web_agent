@@ -1,0 +1,46 @@
+{# Deliberately period-accurate markup: tables for layout, <font> tags, inline
+   styles, and no id or data-* attributes on anything the agent must operate.
+   The accessible names the agent relies on have to be recovered from adjacent
+   text, which is the whole point. #}
+<html>
+<head><title>Northgate Servicing Console{% block subtitle %}{% endblock %}</title></head>
+<body bgcolor="#f4f4ee" style="font-family: Verdana, Geneva, sans-serif; font-size: 12px;">
+
+{% if fault and fault.value == 'modal' %}
+<script>
+  window.addEventListener('load', function () {
+    window.alert('Session advisory: your credentials expire in 3 minutes.');
+  });
+</script>
+{% endif %}
+
+<table width="900" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+    <td bgcolor="#2c3e50" height="46" style="padding-left:12px;">
+      <font color="#ffffff" size="4"><b>Northgate Credit Union</b></font>
+      <font color="#9bb0c4" size="2">&nbsp;&nbsp;Servicing Console v2.1</font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#dfe4e8" height="24" style="padding-left:12px;">
+      <table cellpadding="0" cellspacing="0" border="0"><tr>
+        <td><font size="2"><a href="/search">Member Search</a></font></td>
+        <td width="18"></td>
+        <td><font size="2"><a href="/logout">Sign Out</a></font></td>
+      </tr></table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" style="padding:16px; border:1px solid #c8ccd0;">
+      {% block content %}{% endblock %}
+    </td>
+  </tr>
+  <tr>
+    <td height="30"><font size="1" color="#888888">
+      Internal use only. Records are audited.
+    </font></td>
+  </tr>
+</table>
+
+</body>
+</html>

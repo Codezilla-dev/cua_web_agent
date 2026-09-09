@@ -1,0 +1,4 @@
+replay: capability='look_up_member_read' params={'member_id_or_name': '22841'}
+evidence: evidence\20260909T162026Z-9ad4
+result: success | steps=7
+  savings_account_current_balance = '$918.40'

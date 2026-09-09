@@ -1,0 +1,16 @@
+{
+  "intervention_id": "20260909T162041Z-03c8-step05",
+  "run_id": "20260909T162041Z-03c8",
+  "raised_at": "2026-09-09T16:20:47.029954Z",
+  "condition": "locator_unresolved",
+  "guidance": "The control this step needs was not found. Check whether the page is the one expected, and if the control is present under a different name, perform the step manually and resume.",
+  "capability_id": "look_up_member_read_drifted",
+  "goal": "replay look_up_member_read_drifted",
+  "step_index": 5,
+  "step_intent": "open the member's record",
+  "url": "http://localhost:5000/search",
+  "title": "Northgate Servicing Console - Member Search",
+  "state_summary": "url 'http://localhost:5000/search' with 21 elements, e.g. [\"StaticText:'Northgate Credit Union'\", \"StaticText:'Servicing Console v2.1'\", \"link:'Member Search'\", \"link:'Sign Out'\", \"StaticText:'Member Search'\", \"StaticText:'Search records are served by the legacy directory module.'\", \"StaticText:'Internal use only. Records are audited.'\", \"StaticText:'Member ID or Name'\", \"textbox:'Member ID or Name'\", \"StaticText:'22841'\"]",
+  "screenshot_path": "interventions\\20260909T162041Z-03c8-step05\\state.png",
+  "detail": "target_not_found: expected link named 'Open Record (renamed by the vendor)' in frame:directory (match #0)"
+}

@@ -1,0 +1,6 @@
+# Deliverable (brief S6.3). See README.md in this directory for what each bundle shows.
+#
+# Raw run directories are named `<timestamp>-<id>` and are git-ignored: they accumulate, they
+# are noisy, and the early ones predate the redaction fixes. The bundles kept here are named
+# rather than timestamped, and were selected deliberately -- the full thread against the local
+# target app, and the full thread again against live ParaBank.

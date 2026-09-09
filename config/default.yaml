@@ -1,0 +1,65 @@
+# Policy + run configuration. Loaded by src/config.py into a typed Settings
+# model. Enforced in src/policy/ and src/surface/, never in the LLM prompt.
+
+schema_version: 1
+
+# Allowlist, checked in the guard stage between decide and act.
+allowlist:
+  # Origins the agent may be on or navigate to. localhost:5000 is target_app,
+  # the app the acceptance run drives.
+  origins:
+    - "https://parabank.parasoft.com"
+    - "http://localhost:5000"
+    - "http://127.0.0.1:5000"
+  # Must match the ActionKind values in src/types.py.
+  action_types:
+    - navigate
+    - click
+    - type
+    - select
+    - read
+    - wait
+    - done
+
+# Policy derives the tier from the action and the target's name; it does not
+# trust Intent.risk. The run halts on irreversible.
+risk_policy:
+  # A click/select whose target name matches this is irreversible.
+  irreversible_name_pattern: "(?i)confirm|transfer|pay now|send money|delete|close account|withdraw"
+  consequential_actions: [click, select]
+  safe_actions: [navigate, type, read, wait, done]
+
+# Applied to every StepRecord before it is written to disk.
+redaction:
+  # A step whose target name or description matches this has its typed value
+  # replaced before the record is persisted.
+  sensitive_name_pattern: "(?i)password|passcode|pin|ssn|social security|secret|token|api key"
+  replacement: "***REDACTED***"
+
+run:
+  max_steps: 20
+  max_seconds: 180
+  settle_timeout_s: 8
+
+# On failure the caller logs the reason and continues; no vision tier yet.
+perception:
+  min_interactive_elements: 3
+  max_unnamed_ratio: 0.4
+
+# ---------------------------------------------------------------------------
+# Replay: phrases that mean the application has answered definitively.
+#
+# These are business outcomes, not failures. "No member 99999 exists" is a
+# correct answer the caller needs; treating it as an error is how automation
+# ends up retrying a lookup that can never succeed. Kept in config because the
+# wording is a property of the target app, and a second tenant running the same
+# vendor product may phrase it differently.
+# ---------------------------------------------------------------------------
+replay:
+  business_outcomes:
+    - code: RECORD_NOT_FOUND
+      pattern: "(?i)record not found|no member record|no member records match"
+    - code: ACCESS_DENIED
+      pattern: "(?i)access denied|does not permit|not authorised|not authorized"
+    - code: VALIDATION_REJECTED
+      pattern: '(?i)is required\.|must be a number|must be greater than zero'

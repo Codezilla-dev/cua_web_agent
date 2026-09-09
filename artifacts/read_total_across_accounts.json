@@ -1,0 +1,142 @@
+{
+  "checkpoint": {
+    "check": {
+      "kind": "element_visible",
+      "name_contains": "Total",
+      "role": "StaticText"
+    },
+    "description": "the Total row is on the page"
+  },
+  "description": "Recorded from discovery run 20260909T180920Z-16f1.",
+  "id": "read_total_across_accounts",
+  "inputs": [],
+  "outputs": [
+    {
+      "description": "total account balance",
+      "name": "total_account_balance",
+      "source_step": 3,
+      "type": "string"
+    }
+  ],
+  "provenance": {
+    "discovery_run_id": "20260909T180920Z-16f1",
+    "goal": "Find the total money in all accounts",
+    "model": "gpt-5.6-luna",
+    "recorded_at": "2026-09-09T18:09:20.277881Z",
+    "retried_step_count": 0,
+    "source_step_count": 5
+  },
+  "schema_version": 1,
+  "steps": [
+    {
+      "action": "type",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "expected": "<credential>",
+          "kind": "field_has_value",
+          "name_contains": "Username"
+        },
+        "description": "the username field contains the provided username"
+      },
+      "index": 0,
+      "intent": "enter the username",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Username field",
+        "match_index": 0,
+        "name": "Username",
+        "role": "textbox",
+        "scope": "main"
+      },
+      "value": {
+        "field": "username",
+        "kind": "credential"
+      }
+    },
+    {
+      "action": "type",
+      "expectation": {
+        "check": {
+          "kind": "element_visible",
+          "name_contains": "Log In",
+          "role": "button"
+        },
+        "description": "the password field contains the entered credential"
+      },
+      "index": 1,
+      "intent": "enter the password",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Password textbox",
+        "match_index": 0,
+        "name": "Password",
+        "role": "textbox",
+        "scope": "main"
+      },
+      "value": {
+        "field": "password",
+        "kind": "credential"
+      }
+    },
+    {
+      "action": "click",
+      "expectation": {
+        "check": {
+          "kind": "element_visible",
+          "name_contains": "Accounts Overview",
+          "role": "link"
+        },
+        "description": "The authenticated account overview page appears"
+      },
+      "index": 2,
+      "intent": "submit the login form",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Log In button",
+        "match_index": 0,
+        "name": "Log In",
+        "role": "button",
+        "scope": "main"
+      },
+      "value": null
+    },
+    {
+      "action": "read",
+      "expectation": {
+        "check": {
+          "kind": "element_visible",
+          "name_contains": "Total",
+          "role": "StaticText"
+        },
+        "description": "the Total row is on the page"
+      },
+      "index": 3,
+      "intent": "read total account balance",
+      "risk": "safe",
+      "target": {
+        "anchor": {
+          "after_name": "Total",
+          "offset": 1,
+          "role": "StaticText"
+        },
+        "described_as": "total account balance",
+        "match_index": 0,
+        "name": "$515.50",
+        "role": "StaticText",
+        "scope": "main"
+      },
+      "value": null
+    }
+  ],
+  "surface": {
+    "entry_path": "/parabank/index.htm?ConnType=JDBC",
+    "kind": "web",
+    "recorded_origin": "https://parabank.parasoft.com"
+  },
+  "title": "Find the total money in all accounts",
+  "version": 1
+}

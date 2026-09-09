@@ -1,0 +1,13 @@
+{
+  "capability_id": "parabank_drifted",
+  "params": {},
+  "outcome": "hard_failure",
+  "kind": "target_not_found",
+  "step_index": 2,
+  "step_intent": "submit the login form",
+  "expected": "button named 'Sign In' in main (match #0)",
+  "observed": "url 'https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC' with 49 elements, e.g. [\"link:'ParaBank | Welcome | Online Banking'\", \"link:'ParaBank'\", \"StaticText:'Experience the difference'\", \"StaticText:'Solutions'\", \"link:'About Us'\", \"link:'Services'\", \"link:'Products'\", \"link:'Locations'\", \"link:'Admin Page'\", \"link:'home'\"]",
+  "evidence_dir": "evidence\\20260909T181028Z-9815",
+  "recoveries": [],
+  "stuck_hint": null
+}

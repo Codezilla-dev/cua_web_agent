@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block subtitle %} - Member Record{% endblock %}
+{% block content %}
+
+<font size="3"><b>Member Record</b></font>
+<br><br>
+
+<table cellpadding="4" cellspacing="0" border="0">
+  <tr>
+    <td align="right"><font size="2" color="#666666">Member ID</font></td>
+    <td><font size="2"><b>{{ member.member_id }}</b></font></td>
+    <td width="30"></td>
+    <td align="right"><font size="2" color="#666666">Name</font></td>
+    <td><font size="2"><b>{{ member.name }}</b></font></td>
+  </tr>
+  <tr>
+    <td align="right"><font size="2" color="#666666">Status</font></td>
+    <td><font size="2">{{ member.status }}</font></td>
+    <td></td>
+    <td align="right"><font size="2" color="#666666">Branch</font></td>
+    <td><font size="2">{{ member.branch }}</font></td>
+  </tr>
+</table>
+
+<br>
+<font size="2"><b>Accounts</b></font>
+<br><br>
+
+{# The balance the agent has to read. Nothing here is machine-labelled: the
+   column header is a sibling cell two rows up. #}
+<table cellpadding="6" cellspacing="1" border="0" bgcolor="#c8ccd0" width="620">
+  <tr bgcolor="#dfe4e8">
+    <td><font size="2"><b>Account</b></font></td>
+    <td><font size="2"><b>Type</b></font></td>
+    <td align="right"><font size="2"><b>Current Balance</b></font></td>
+  </tr>
+  {% for account in member.accounts %}
+  <tr bgcolor="#ffffff">
+    <td><font size="2">{{ account.number }}</font></td>
+    <td><font size="2">{{ account.kind }}</font></td>
+    <td align="right"><font size="2">${{ account.balance }}</font></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+<font size="2"><a href="/transfer?from={{ member.member_id }}">Transfer Funds</a></font>
+
+{% endblock %}

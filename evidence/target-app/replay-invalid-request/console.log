@@ -1,0 +1,5 @@
+replay: capability='look_up_member_read' params={}
+evidence: evidence\20260909T162040Z-8ced
+result: hard failure | invalid_request at step -1
+  expected : values for required inputs ['member_id_or_name']
+  observed : got []

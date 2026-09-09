@@ -1,0 +1,11 @@
+{
+  "capability_id": "look_up_member_read",
+  "params": {
+    "member_id_or_name": "99999"
+  },
+  "outcome": "business_outcome",
+  "code": "RECORD_NOT_FOUND",
+  "detail": "No member records match that search.",
+  "step_index": 4,
+  "recoveries": []
+}

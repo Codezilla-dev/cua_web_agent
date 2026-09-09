@@ -1,0 +1,12 @@
+{
+  "capability_id": "look_up_member_read",
+  "params": {
+    "member_id_or_name": "22841"
+  },
+  "outcome": "success",
+  "outputs": {
+    "savings_account_current_balance": "$918.40"
+  },
+  "steps_run": 7,
+  "recoveries": []
+}

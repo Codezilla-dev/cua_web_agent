@@ -1,0 +1,15 @@
+{
+  "capability_id": "look_up_member_read_drifted",
+  "params": {
+    "member_id_or_name": "22841"
+  },
+  "outcome": "hard_failure",
+  "kind": "checkpoint_failed",
+  "step_index": 7,
+  "step_intent": "checkpoint",
+  "expected": "looked for '22841' in the URL (case-insensitive)",
+  "observed": "URL was 'http://localhost:5000/member/12345'",
+  "evidence_dir": "evidence\\20260909T162053Z-1973",
+  "recoveries": [],
+  "stuck_hint": null
+}

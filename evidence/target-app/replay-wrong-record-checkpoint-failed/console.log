@@ -1,0 +1,16 @@
+replay: capability='look_up_member_read_drifted' params={'member_id_or_name': '22841'}
+
+escalation: locator_unresolved at step 5.
+  cua operator take 20260909T162053Z-1973-step05
+  waiting for an operator...
+escalation: control returned; retrying step 5.
+
+escalation: checkpoint_failed_terminal at step 7.
+  cua operator take 20260909T162053Z-1973-step07
+  waiting for an operator...
+escalation: control returned; retrying step 7.
+evidence: evidence\20260909T162053Z-1973
+result: hard failure | checkpoint_failed at step 7
+  step     : checkpoint
+  expected : looked for '22841' in the URL (case-insensitive)
+  observed : URL was 'http://localhost:5000/member/12345'

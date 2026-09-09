@@ -1,0 +1,225 @@
+{
+  "checkpoint": {
+    "check": {
+      "case_sensitive": false,
+      "fragment": "{{member_id_or_name}}",
+      "kind": "url_contains"
+    },
+    "description": "The URL identifies the requested record ({{member_id_or_name}})."
+  },
+  "description": "Recorded from discovery run 20260909T161852Z-d630. Hand-drifted twin: the vendor renamed 'Open Record' to 'Open Record (renamed by the vendor)', so replay cannot resolve it.",
+  "id": "look_up_member_read_drifted",
+  "inputs": [
+    {
+      "description": "Value typed into 'Member ID or Name'.",
+      "example": "12345",
+      "name": "member_id_or_name",
+      "required": true,
+      "sensitivity": "public",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "description": "Savings account current balance value",
+      "name": "savings_account_current_balance",
+      "source_step": 6,
+      "type": "string"
+    }
+  ],
+  "provenance": {
+    "discovery_run_id": "20260909T161852Z-d630",
+    "goal": "look up member 12345 and read their savings balance",
+    "model": "gpt-4.1-2025-04-14",
+    "recorded_at": "2026-09-09T16:18:52.602235Z",
+    "retried_step_count": 1,
+    "source_step_count": 9
+  },
+  "schema_version": 1,
+  "steps": [
+    {
+      "action": "type",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "expected": "<credential>",
+          "kind": "field_has_value",
+          "name_contains": "Operator ID"
+        },
+        "description": "the Operator ID field contains '<credential>'"
+      },
+      "index": 0,
+      "intent": "type the Operator ID",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Operator ID textbox",
+        "match_index": 0,
+        "name": "Operator ID",
+        "role": "textbox",
+        "scope": "main"
+      },
+      "value": {
+        "field": "username",
+        "kind": "credential"
+      }
+    },
+    {
+      "action": "type",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "expected": "<credential>",
+          "kind": "field_has_value",
+          "name_contains": "Passcode"
+        },
+        "description": "the passcode field contains the entered value"
+      },
+      "index": 1,
+      "intent": "type the passcode",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Passcode textbox",
+        "match_index": 0,
+        "name": "Passcode",
+        "role": "textbox",
+        "scope": "main"
+      },
+      "value": {
+        "field": "password",
+        "kind": "credential"
+      }
+    },
+    {
+      "action": "click",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "fragment": "/search",
+          "kind": "url_contains"
+        },
+        "description": "The page moved to '/search', which is what this step was observed to do during recording."
+      },
+      "index": 2,
+      "intent": "submit login form",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Sign In button",
+        "match_index": 0,
+        "name": "Sign In",
+        "role": "button",
+        "scope": "main"
+      },
+      "value": null
+    },
+    {
+      "action": "type",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "expected": "{{member_id_or_name}}",
+          "kind": "field_has_value",
+          "name_contains": "Member ID or Name"
+        },
+        "description": "The member ID '12345' appears in the textbox."
+      },
+      "index": 3,
+      "intent": "type the member id",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "",
+        "match_index": 0,
+        "name": "Member ID or Name",
+        "role": "textbox",
+        "scope": "frame:directory"
+      },
+      "value": {
+        "kind": "param",
+        "name": "member_id_or_name"
+      }
+    },
+    {
+      "action": "click",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "kind": "text_visible",
+          "text": "{{member_id_or_name}}"
+        },
+        "description": "The member's details page or results appear, showing information for member 12345."
+      },
+      "index": 4,
+      "intent": "click the Find Member button to search for member 12345",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Find Member button",
+        "match_index": 0,
+        "name": "Find Member",
+        "role": "button",
+        "scope": "frame:directory"
+      },
+      "value": null
+    },
+    {
+      "action": "click",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "fragment": "member",
+          "kind": "url_contains"
+        },
+        "description": "The member's detailed record page loads, showing more information about member 12345."
+      },
+      "index": 5,
+      "intent": "open the member's record",
+      "risk": "safe",
+      "target": {
+        "anchor": null,
+        "described_as": "Open Record link for member 12345",
+        "match_index": 0,
+        "name": "Open Record (renamed by the vendor)",
+        "role": "link",
+        "scope": "frame:directory"
+      },
+      "value": null
+    },
+    {
+      "action": "read",
+      "expectation": {
+        "check": {
+          "case_sensitive": false,
+          "kind": "text_visible",
+          "text": "$4,812.55"
+        },
+        "description": "the savings balance value is visible and can be read"
+      },
+      "index": 6,
+      "intent": "read the savings balance",
+      "risk": "safe",
+      "target": {
+        "anchor": {
+          "after_name": "Savings",
+          "offset": 1,
+          "role": "StaticText"
+        },
+        "described_as": "Savings account current balance value",
+        "match_index": 0,
+        "name": "$4,812.55",
+        "role": "StaticText",
+        "scope": "main"
+      },
+      "value": null
+    }
+  ],
+  "surface": {
+    "entry_path": "/",
+    "kind": "web",
+    "recorded_origin": "http://localhost:5000"
+  },
+  "title": "look up member {{member_id_or_name}} and read their savings balance (drifted)",
+  "version": 1
+}

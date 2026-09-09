@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.pyright/
+.mypy_cache/
+
+# Secrets / local config.
+# Broad on purpose: .env.bak / .env.openai / .env.2 are the shapes that
+# actually leak, and each one only gets added to a narrow list after it
+# has already been committed once.
+.env*
+!.env.example
+
+# Runtime, not source of truth.
+#
+# Raw run directories are named `<timestamp>-<id>` and stay local: they are
+# noisy, they accumulate, and the early ones predate the redaction fix. The
+# curated bundles under evidence/ are named rather than timestamped, and they
+# are deliverables (the brief asks for a discovery log, a replay log and an
+# error-path replay), so the ignore rule keys on the timestamp shape rather
+# than on the directory level.
+runs/
+interventions/
+evidence/20*/
+!evidence/.gitkeep
+*.trace.zip
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Screen recordings (keep small curated ones under evidence/ only if intentional)
+*.mp4
+*.mov
+!evidence/**/*.mp4
+
+# Local working notes. The design reasoning that matters ships in REPORT.md;
+# scratch documents go stale faster than the code does, and a document that
+# opens by disclaiming itself is worse than no document.
+doc/
+docs/scratch/

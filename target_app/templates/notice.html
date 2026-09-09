@@ -1,0 +1,18 @@
+{# One template for both "not found" and "denied": same legacy notice box, and
+   both are legitimate outcomes the agent must be able to read, not crashes. #}
+{% extends "base.html" %}
+{% block subtitle %} - {{ heading }}{% endblock %}
+{% block content %}
+
+<font size="3"><b>{{ heading }}</b></font>
+<br><br>
+
+<table cellpadding="8" cellspacing="0" border="0" bgcolor="{{ background }}"
+       style="border:1px solid {{ border }};"><tr><td>
+  <font size="2" color="{{ colour }}">{{ message }}</font>
+</td></tr></table>
+
+<br>
+<font size="2"><a href="/search">Return to Member Search</a></font>
+
+{% endblock %}
